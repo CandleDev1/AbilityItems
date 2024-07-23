@@ -23,7 +23,7 @@ class EventListener implements Listener
         foreach (ItemRegistry::getItems() as $type => $class) {
             $abilityItem = ItemFactory::createItem($type, $player);
             if ($abilityItem && $nbt->getTag($abilityItem->getNbt()) instanceof CompoundTag) {
-                $time = TimeConverter::ticksToSeconds($abilityItem->getTime());
+                $time = TimeConverter::ticksToSeconds($abilityItem->getCooldown());
 
                 $cooldown = $player->getName() . "_" . strtolower($type);
                 $currentTime = microtime(true);

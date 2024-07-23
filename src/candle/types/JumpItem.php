@@ -28,8 +28,9 @@ class JumpItem extends ItemManager
         $nbt = "jump_item";
         $effect = VanillaEffects::JUMP_BOOST();
         $time = 600;
+        $cooldown = 600;
 
-        parent::__construct($itemName, $nbt, $effect, $time, $receiver);
+        parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
 
         $this->item = $this->createItem();
     }

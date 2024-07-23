@@ -25,8 +25,9 @@ class SlownessItem extends ItemManager
         $nbt = "slowness_item";
         $effect = VanillaEffects::SLOWNESS();
         $time = 600;
+        $cooldown = 600;
 
-        parent::__construct($itemName, $nbt, $effect, $time, $receiver);
+        parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
 
         $this->item = $this->createItem();
     }

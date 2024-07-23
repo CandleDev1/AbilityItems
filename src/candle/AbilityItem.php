@@ -28,6 +28,8 @@ class AbilityItem extends PluginBase
 
 
     public function onEnable(): void {
+        $this->saveDefaultConfig();
+
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
         $this->getServer()->getCommandMap()->register("AbilityCommand", new AbilityCommand());
         $this->getServer()->getCommandMap()->register("RenameCommand", new renameCommand());
