@@ -3,6 +3,7 @@
 namespace candle\commands;
 
 
+use candle\commands\forms\AbilityForm;
 use candle\managers\ItemFactory;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;

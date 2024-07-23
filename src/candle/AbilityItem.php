@@ -6,6 +6,7 @@ use candle\commands\AbilityCommand;
 use candle\commands\renameCommand;
 use candle\managers\ItemRegistry;
 use candle\types\JumpItem;
+use candle\types\SlownessItem;
 use candle\types\StrengthItem;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\SingletonTrait;
@@ -38,6 +39,7 @@ class AbilityItem extends PluginBase
     public function initAbilityItems(): void {
         StrengthItem::init();
         JumpItem::init();
+        SlownessItem::init();
     }
 
 }
