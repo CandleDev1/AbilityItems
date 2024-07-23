@@ -2,6 +2,7 @@
 
 namespace candle\types;
 
+use candle\AbilityItem;
 use candle\ItemManager;
 use candle\managers\ItemRegistry;
 use pocketmine\entity\effect\Effect;
@@ -27,8 +28,8 @@ class JumpItem extends ItemManager
         $itemName = "§aJump boost";
         $nbt = "jump_item";
         $effect = VanillaEffects::JUMP_BOOST();
-        $time = 600;
-        $cooldown = 600;
+        $time = AbilityItem::getInstance()->getConfig()->get("JumpDuration");
+        $cooldown = AbilityItem::getInstance()->getConfig()->get("JumpCooldown");
 
         parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
 

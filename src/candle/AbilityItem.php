@@ -3,7 +3,6 @@
 namespace candle;
 
 use candle\commands\AbilityCommand;
-use candle\commands\renameCommand;
 use candle\managers\ItemRegistry;
 use candle\types\JumpItem;
 use candle\types\SlownessItem;
@@ -32,7 +31,6 @@ class AbilityItem extends PluginBase
 
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
         $this->getServer()->getCommandMap()->register("AbilityCommand", new AbilityCommand());
-        $this->getServer()->getCommandMap()->register("RenameCommand", new renameCommand());
 
         self::initAbilityItems();
 

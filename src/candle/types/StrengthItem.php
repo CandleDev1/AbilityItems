@@ -2,6 +2,7 @@
 
 namespace candle\types;
 
+use candle\AbilityItem;
 use candle\ItemManager;
 use candle\managers\ItemRegistry;
 use pocketmine\entity\effect\EffectInstance;
@@ -25,8 +26,8 @@ class StrengthItem extends ItemManager
        $itemName = "§cStrength";
        $nbt = "strength_item";
        $effect = VanillaEffects::STRENGTH();
-       $time = 600;
-       $cooldown = 600;
+       $time = AbilityItem::getInstance()->getConfig()->get('StrengthDuration');
+       $cooldown = AbilityItem::getInstance()->getConfig()->get('StrengthCooldown');
 
        parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
 

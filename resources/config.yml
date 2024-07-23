@@ -1,0 +1,10 @@
+# Ability Items cooldowns:
+
+JumpCooldown: 600 # 30 seconds.
+SlownessCooldown: 600 #30 seconds.
+StrengthCooldown: 600 #30 seconds.
+
+# Effect duration, example 600 === 30 seconds.
+JumpDuration: 600
+SlownessDuration: 600
+StrengthDuration: 600

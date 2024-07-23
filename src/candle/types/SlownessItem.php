@@ -2,6 +2,7 @@
 
 namespace candle\types;
 
+use candle\AbilityItem;
 use candle\ItemManager;
 use candle\managers\ItemRegistry;
 use pocketmine\entity\effect\EffectInstance;
@@ -24,8 +25,8 @@ class SlownessItem extends ItemManager
         $itemName = "§7Slowness";
         $nbt = "slowness_item";
         $effect = VanillaEffects::SLOWNESS();
-        $time = 600;
-        $cooldown = 600;
+        $time = AbilityItem::getInstance()->getConfig()->get("SlownessDuration");
+        $cooldown = AbilityItem::getInstance()->getConfig()->get("SlownessCooldown");
 
         parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
 
