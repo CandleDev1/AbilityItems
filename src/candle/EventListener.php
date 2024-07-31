@@ -8,7 +8,6 @@ use candle\utils\TimeConverter;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerItemUseEvent;
 use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 
 class EventListener implements Listener
