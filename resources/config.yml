@@ -3,8 +3,10 @@
 JumpCooldown: 600 # 30 seconds.
 SlownessCooldown: 600 #30 seconds.
 StrengthCooldown: 600 #30 seconds.
+PrisonCooldown: 1200 #1 minute
 
 # Effect duration, example 600 === 30 seconds.
 JumpDuration: 600
 SlownessDuration: 600
 StrengthDuration: 600
+PrisonDuration: 600

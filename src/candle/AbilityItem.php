@@ -5,6 +5,7 @@ namespace candle;
 use candle\commands\AbilityCommand;
 use candle\managers\ItemRegistry;
 use candle\types\JumpItem;
+use candle\types\PrisonAbility;
 use candle\types\SlownessItem;
 use candle\types\StrengthItem;
 use pocketmine\plugin\PluginBase;
@@ -40,6 +41,7 @@ class AbilityItem extends PluginBase
         StrengthItem::init();
         JumpItem::init();
         SlownessItem::init();
+        PrisonAbility::init();
     }
 
 }
