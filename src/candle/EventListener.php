@@ -56,6 +56,6 @@ class EventListener implements Listener
 
     public function BlockPlaceEvent(BlockPlaceEvent $event): void {
         $player = $event->getPlayer();
-        $block = $event->getItem();
+       
     }
 }
