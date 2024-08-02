@@ -9,7 +9,7 @@ use pocketmine\player\Player;
 abstract class  ItemManager
 {
 
-    public function __construct(public string $itemName, public string $nbt, public Effect $effect, public int $time, public int $cooldown, public Player $receiver) {}
+    public function __construct(public string $itemName, public array $lore, public string $nbt, public Effect $effect, public int $time, public int $cooldown, public Player $receiver) {}
 
     abstract public static function init(): void;
 
@@ -18,6 +18,10 @@ abstract class  ItemManager
 
     public function getItemName(): string {
         return $this->itemName;
+    }
+
+    public function getLore(): array {
+        return $this->lore;
     }
 
     public function getNbt(): string {

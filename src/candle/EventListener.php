@@ -5,6 +5,7 @@ namespace candle;
 use candle\managers\ItemFactory;
 use candle\managers\ItemRegistry;
 use candle\utils\TimeConverter;
+use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerItemUseEvent;
 use pocketmine\nbt\tag\CompoundTag;
@@ -50,5 +51,11 @@ class EventListener implements Listener
                 $this->cooldowns[$cooldown] = $currentTime;
             }
         }
+    }
+
+
+    public function BlockPlaceEvent(BlockPlaceEvent $event): void {
+        $player = $event->getPlayer();
+        $block = $event->getItem();
     }
 }

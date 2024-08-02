@@ -26,12 +26,13 @@ class JumpItem extends ItemManager
     public function __construct(Player $receiver)
     {
         $itemName = "§aJump boost";
+        $lore = [];
         $nbt = "jump_item";
         $effect = VanillaEffects::JUMP_BOOST();
         $time = AbilityItem::getInstance()->getConfig()->get("JumpDuration");
         $cooldown = AbilityItem::getInstance()->getConfig()->get("JumpCooldown");
 
-        parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
+        parent::__construct($itemName, $lore, $nbt, $effect, $time, $cooldown, $receiver);
 
         $this->item = $this->createItem();
     }

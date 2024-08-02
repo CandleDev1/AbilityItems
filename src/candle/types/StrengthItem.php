@@ -24,12 +24,13 @@ class StrengthItem extends ItemManager
 
     public function __construct(Player $receiver) {
        $itemName = "§cStrength";
+       $lore = [];
        $nbt = "strength_item";
        $effect = VanillaEffects::STRENGTH();
        $time = AbilityItem::getInstance()->getConfig()->get('StrengthDuration');
        $cooldown = AbilityItem::getInstance()->getConfig()->get('StrengthCooldown');
 
-       parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
+       parent::__construct($itemName,$lore, $nbt, $effect, $time, $cooldown, $receiver);
 
        $this->item = $this->createItem();
     }

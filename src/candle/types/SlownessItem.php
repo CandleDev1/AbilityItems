@@ -23,12 +23,13 @@ class SlownessItem extends ItemManager
 
     public function __construct(Player $receiver) {
         $itemName = "§7Slowness";
+        $lore = [];
         $nbt = "slowness_item";
         $effect = VanillaEffects::SLOWNESS();
         $time = AbilityItem::getInstance()->getConfig()->get("SlownessDuration");
         $cooldown = AbilityItem::getInstance()->getConfig()->get("SlownessCooldown");
 
-        parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
+        parent::__construct($itemName,$lore, $nbt, $effect, $time, $cooldown, $receiver);
 
         $this->item = $this->createItem();
     }

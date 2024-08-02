@@ -6,6 +6,7 @@ use candle\AbilityItem;
 use candle\ItemManager;
 use candle\managers\ItemRegistry;
 use pocketmine\block\BlockTypeIds;
+use pocketmine\block\utils\MobHeadType;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\VanillaEffects;
@@ -29,21 +30,30 @@ class PrisonAbility extends ItemManager
 
     public function __construct(Player $receiver)
     {
-        $itemName = "§cJail Trap";
-        $nbt = "jailtrap";
+        $itemName = "§l§cCrimson Cage";
+        $lore = [
+            "§7Those who find themselves ensnared by this trap\nwill face the unyielding walls of their own misdeeds.",
+            " ",
+            "§l§eAbility §r",
+            "§c* §7Slowness for 30 seconds",
+            "§c* §7Crimson Cage 30 seconds"
+        ];
+        $nbt = "CrimsonCage_AbilityItem";
         $effect = VanillaEffects::SLOWNESS();
         $time = AbilityItem::getInstance()->getConfig()->get("PrisonDuration");
         $cooldown = AbilityItem::getInstance()->getConfig()->get("PrisonCooldown");
 
-        parent::__construct($itemName, $nbt, $effect, $time, $cooldown, $receiver);
+        parent::__construct($itemName, $lore, $nbt, $effect, $time, $cooldown, $receiver);
 
         $this->item = $this->createItem();
     }
 
     public function createItem(): Item
     {
-        $item = VanillaItems::BONE();
+        $item = VanillaBlocks::MOB_HEAD()->setMobHeadType(MobHeadType::WITHER_SKELETON)->asItem();
         $item->setCustomName($this->itemName);
+
+        $item->setLore($this->getLore());
 
         $nbt = $item->getNamedTag();
         $nbt->setTag($this->nbt, new CompoundTag());
