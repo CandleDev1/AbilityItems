@@ -55,9 +55,9 @@ class PrisonAbility extends ItemManager
     public function apply(Player $receiver): void
     {
         $effectInstance = new EffectInstance($this->effect, $this->time);
-        $this->createJailAroundPlayer($receiver);
+        $this->createJailPlayer($receiver);
         AbilityItem::getInstance()->getScheduler()->scheduleDelayedTask(new ClosureTask(function () {
-            $this->removeJailAroundPlayer();
+            $this->removeJailPlayer();
         }), 20 * 30); //not sure if i want this to be in config maybe later
         $receiver->getEffects()->add($effectInstance);
     }
@@ -66,7 +66,7 @@ class PrisonAbility extends ItemManager
         return $this->item;
     }
 
-    private function createJailAroundPlayer(Player $player): void {
+    private function createJailPlayer(Player $player): void {
         $world = $player->getWorld();
         $center = $player->getPosition();
         $radius = 5;
@@ -101,7 +101,7 @@ class PrisonAbility extends ItemManager
         }
     }
 
-    private function removeJailAroundPlayer(): void {
+    private function removeJailPlayer(): void {
         foreach ($this->jailBlocks as $position) {
             $position->getWorld()->setBlock($position, VanillaBlocks::AIR());
         }
