@@ -23,7 +23,7 @@ class StrengthItem extends ItemManager
     }
 
     public function __construct(Player $receiver) {
-       $itemName = "§cStrength";
+       $itemName = "§cStrength§r";
        $lore = [];
        $nbt = "strength_item";
        $effect = VanillaEffects::STRENGTH();

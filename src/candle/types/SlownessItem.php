@@ -22,7 +22,7 @@ class SlownessItem extends ItemManager
     }
 
     public function __construct(Player $receiver) {
-        $itemName = "§7Slowness";
+        $itemName = "§7Slowness§r";
         $lore = [];
         $nbt = "slowness_item";
         $effect = VanillaEffects::SLOWNESS();

@@ -4,6 +4,7 @@ namespace candle;
 
 use candle\commands\AbilityCommand;
 use candle\managers\ItemRegistry;
+use candle\types\IceAbility;
 use candle\types\JumpItem;
 use candle\types\PrisonAbility;
 use candle\types\SlownessItem;
@@ -42,6 +43,7 @@ class AbilityItem extends PluginBase
         JumpItem::init();
         SlownessItem::init();
         PrisonAbility::init();
+        IceAbility::init();
     }
 
 }

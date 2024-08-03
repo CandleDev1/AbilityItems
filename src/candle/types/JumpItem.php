@@ -25,7 +25,7 @@ class JumpItem extends ItemManager
 
     public function __construct(Player $receiver)
     {
-        $itemName = "§aJump boost";
+        $itemName = "§aJump boost§r";
         $lore = [];
         $nbt = "jump_item";
         $effect = VanillaEffects::JUMP_BOOST();

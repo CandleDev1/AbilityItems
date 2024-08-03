@@ -30,7 +30,7 @@ class PrisonAbility extends ItemManager
 
     public function __construct(Player $receiver)
     {
-        $itemName = "§l§cCrimson Cage";
+        $itemName = "§l§cCrimson Cage§r";
         $lore = [
             "§7Those who find themselves ensnared by this trap\nwill face the unyielding walls of their own misdeeds.",
             " ",
