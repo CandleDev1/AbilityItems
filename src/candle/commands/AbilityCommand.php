@@ -5,6 +5,7 @@ namespace candle\commands;
 
 use candle\commands\forms\AbilityForm;
 use candle\managers\ItemFactory;
+use candle\managers\ItemRegistry;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\permission\DefaultPermissions;
@@ -31,11 +32,14 @@ class AbilityCommand extends Command
         }
 
         $type = $args[0];
+        $knownTypes = ItemRegistry::getItems();
         $abilityItem = ItemFactory::createItem($type, $sender);
+
         if ($abilityItem !== null) {
             $sender->getInventory()->addItem($abilityItem->getItem());
         } else {
             $sender->sendMessage("§cUnknown ability type: $type");
+            $sender->sendMessage("§aKnown Ability type: " . implode(", ", array_keys($knownTypes)));
         }
     }
 }

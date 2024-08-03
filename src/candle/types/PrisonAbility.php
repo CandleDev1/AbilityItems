@@ -11,7 +11,6 @@ use pocketmine\block\VanillaBlocks;
 use pocketmine\entity\effect\EffectInstance;
 use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\item\Item;
-use pocketmine\item\VanillaItems;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\player\Player;
 use pocketmine\scheduler\ClosureTask;
@@ -19,7 +18,6 @@ use pocketmine\world\Position;
 
 class PrisonAbility extends ItemManager
 {
-
     private Item $item;
     private array $jailBlocks = [];
     private array $originalBlocks = [];
@@ -94,7 +92,7 @@ class PrisonAbility extends ItemManager
                     $originalBlock = $world->getBlock($position);
                     $this->originalBlocks[$position->asVector3()->__toString()] = $originalBlock;
                     if ($x === -$radius || $x === $radius || $z === -$radius || $z === $radius) {
-                        if ($y < 7) {
+                        if ($y < $height - 1) {
                             $block = VanillaBlocks::IRON_BARS();
                         } else {
                             $block = VanillaBlocks::OBSIDIAN();
@@ -125,5 +123,4 @@ class PrisonAbility extends ItemManager
         $this->jailBlocks = [];
         $this->originalBlocks = [];
     }
-
 }

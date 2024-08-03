@@ -23,7 +23,12 @@ class SlownessItem extends ItemManager
 
     public function __construct(Player $receiver) {
         $itemName = "§7Slowness§r";
-        $lore = [];
+        $lore = [
+            "§7Slowness for every person in your radius",
+            " ",
+            "§l§eAbility §r",
+            "§d* §7Slowness for 7 seconds",
+        ];
         $nbt = "slowness_item";
         $effect = VanillaEffects::SLOWNESS();
         $time = AbilityItem::getInstance()->getConfig()->get("SlownessDuration");
