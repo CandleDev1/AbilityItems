@@ -12,7 +12,7 @@ Use this command to obtain an AbilityItem. Replace `<AbilityItem>` with the name
 
 ## Plugin Information
 
-- **Author:** Candle MCPE
+- **Author:** Candle 
 - **In-Game Name:** Outsidecandle8
 - **Current Version:** Under Development
 
