@@ -22,6 +22,7 @@ class PrisonAbility extends ItemManager
 
     private Item $item;
     private array $jailBlocks = [];
+    private array $originalBlocks = [];
 
     public static function init(): void
     {
@@ -68,7 +69,7 @@ class PrisonAbility extends ItemManager
         $this->createJailPlayer($receiver);
         AbilityItem::getInstance()->getScheduler()->scheduleDelayedTask(new ClosureTask(function () {
             $this->removeJailPlayer();
-        }), 20 * 30); //not sure if i want this to be in config maybe later
+        }), 20 * 30);
         $receiver->getEffects()->add($effectInstance);
     }
 
@@ -83,11 +84,15 @@ class PrisonAbility extends ItemManager
         $height = 8;
 
         $this->jailBlocks = [];
+        $this->originalBlocks = [];
 
         for ($x = -$radius; $x <= $radius; $x++) {
             for ($z = -$radius; $z <= $radius; $z++) {
                 for ($y = 0; $y < $height; $y++) {
                     $position = new Position($center->getX() + $x, $center->getY() + $y, $center->getZ() + $z, $world);
+
+                    $originalBlock = $world->getBlock($position);
+                    $this->originalBlocks[$position->asVector3()->__toString()] = $originalBlock;
                     if ($x === -$radius || $x === $radius || $z === -$radius || $z === $radius) {
                         if ($y < 7) {
                             $block = VanillaBlocks::IRON_BARS();
@@ -113,9 +118,12 @@ class PrisonAbility extends ItemManager
 
     private function removeJailPlayer(): void {
         foreach ($this->jailBlocks as $position) {
-            $position->getWorld()->setBlock($position, VanillaBlocks::AIR());
+            $world = $position->getWorld();
+            $originalBlock = $this->originalBlocks[$position->asVector3()->__toString()] ?? VanillaBlocks::AIR();
+            $position->getWorld()->setBlock($position, $originalBlock);
         }
         $this->jailBlocks = [];
+        $this->originalBlocks = [];
     }
 
 }

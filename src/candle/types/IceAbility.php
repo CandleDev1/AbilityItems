@@ -19,6 +19,7 @@ class IceAbility extends ItemManager
 {
     private Item $item;
     private array $iceBlocks = [];
+    private array $originalBlocks = [];
 
     public static function init(): void
     {
@@ -37,7 +38,7 @@ class IceAbility extends ItemManager
         ];
         $nbt = "IceAbility_Item";
         $effect = VanillaEffects::SLOWNESS();
-        $time = 7 * 20;
+        $time = 7 * 20; // Duration in ticks
         $cooldown = AbilityItem::getInstance()->getConfig()->get("IceAbilityCooldown");
 
         parent::__construct($itemName, $lore, $nbt, $effect, $time, $cooldown, $receiver);
@@ -49,7 +50,6 @@ class IceAbility extends ItemManager
     {
         $item = VanillaItems::SNOWBALL();
         $item->setCustomName($this->itemName);
-
         $item->setLore($this->getLore());
 
         $nbt = $item->getNamedTag();
@@ -63,9 +63,11 @@ class IceAbility extends ItemManager
     {
         $effectInstance = new EffectInstance($this->effect, $this->time);
         $this->createIcePrison($receiver);
+
         AbilityItem::getInstance()->getScheduler()->scheduleDelayedTask(new ClosureTask(function () {
             $this->removeIcePrison();
         }), $this->time);
+
         $receiver->getEffects()->add($effectInstance);
     }
 
@@ -73,12 +75,14 @@ class IceAbility extends ItemManager
         return $this->item;
     }
 
-    private function createIcePrison(Player $player): void {
+    private function createIcePrison(Player $player): void
+    {
         $world = $player->getWorld();
         $center = $player->getPosition();
         $radius = 5;
 
         $this->iceBlocks = [];
+        $this->originalBlocks = [];
 
         for ($x = -$radius; $x <= $radius; $x++) {
             for ($y = -$radius; $y <= $radius; $y++) {
@@ -86,6 +90,9 @@ class IceAbility extends ItemManager
                     $distance = sqrt($x * $x + $y * $y + $z * $z);
                     if ($distance <= $radius && $distance >= $radius - 1) {
                         $position = new Position($center->getX() + $x, $center->getY() + $y, $center->getZ() + $z, $world);
+                        $originalBlock = $world->getBlock($position);
+                        $this->originalBlocks[$position->asVector3()->__toString()] = $originalBlock;
+
                         $block = VanillaBlocks::ICE();
                         $world->setBlock($position, $block);
                         $this->iceBlocks[] = $position;
@@ -95,10 +102,15 @@ class IceAbility extends ItemManager
         }
     }
 
-    private function removeIcePrison(): void {
+    private function removeIcePrison(): void
+    {
         foreach ($this->iceBlocks as $position) {
-            $position->getWorld()->setBlock($position, VanillaBlocks::AIR());
+            $world = $position->getWorld();
+            $originalBlock = $this->originalBlocks[$position->asVector3()->__toString()] ?? VanillaBlocks::AIR();
+            $world->setBlock($position, $originalBlock);
         }
+
         $this->iceBlocks = [];
+        $this->originalBlocks = [];
     }
 }
