@@ -39,8 +39,6 @@ class AbilityItem extends PluginBase
     }
 
     public function initAbilityItems(): void {
-        StrengthItem::init();
-        JumpItem::init();
         SlownessItem::init();
         PrisonAbility::init();
         IceAbility::init();
