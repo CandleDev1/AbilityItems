@@ -7,8 +7,6 @@
     <list default="true" id="855bdecc-005e-4de7-94f3-be9f74b80557" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/candle/commands/AbilityCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/candle/commands/AbilityCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/candle/types/PrisonAbility.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/candle/types/PrisonAbility.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/candle/types/SlownessItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/candle/types/SlownessItem.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,19 +34,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Gebruiker/Downloads/NBT-stable",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "php.override.implement.member.chooser.php.doc": "NONE",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gebruiker/Downloads/NBT-stable&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,7 +70,8 @@
       <workItem from="1722682974198" duration="2832000" />
       <workItem from="1722686001450" duration="698000" />
       <workItem from="1722697865634" duration="3248000" />
-      <workItem from="1722705055927" duration="399000" />
+      <workItem from="1722705055927" duration="2822000" />
+      <workItem from="1722775813411" duration="11000" />
     </task>
     <servers />
   </component>

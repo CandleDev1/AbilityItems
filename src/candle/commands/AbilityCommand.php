@@ -19,7 +19,7 @@ class AbilityCommand extends Command
         $this->setPermission(DefaultPermissions::ROOT_OPERATOR);
     }
 
-    public function execute(CommandSender $sender, string $commandLabel, array $args)
+    public function execute(CommandSender $sender, string $commandLabel, array $args): void
     {
         if (!$sender instanceof Player) return;
         if (!$sender->hasPermission(DefaultPermissions::ROOT_OPERATOR)) {
